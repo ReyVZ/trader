@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1b1b1b;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: None;
+    display: inline;
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: large;
+    padding: 10px;
+    background-color: #1b1b1b;
+    border-bottom: 1px solid #6d6d6d;
+    box-shadow: 0 0 3px #ffffff;
+}
+
+.logo {
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #ffffff;
+}
+
+.register,
+.login,
+.trade,
+.tickers,
+.assets,
+.flash {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 20px;
+}
+
+.flash {
+    color: red;
+    font-weight: bold;
+}
+
+input,
+select {
+    display: block;
+    margin: 20px;
+    background-color: #1b1b1b;
+    color: #ffffff;
+    border: 1px solid #6d6d6d;
+    border-radius: 2px;
+    padding: 7px;
+    box-shadow: 0 0 3px #ffffff;
+}
+
+input[type=submit],
+select {
+    padding: 6px 20px;
+    margin: auto;
+}
+
+button {
+    background-color: #424242;
+    margin-right: 5px;
+    color: #ffffff;
+    border: 0px solid #6d6d6d;
+    border-radius: 2px;
+    box-shadow: 0 0 4px #424242;
+}
+
+table {
+    border-collapse: collapse;
+    box-shadow: 0 0 3px #ffffff;
+}
+
+th {
+    text-transform: uppercase;
+}
+
+td,
+th {
+    padding: 5px 20px;
+    border: 1px solid #6d6d6d;
+}
+
+.green {
+    color: #00ff00;
+    font-weight: 600;
+}
+
+.red {
+    color: #ff0000;
+    font-weight: 600;
+}

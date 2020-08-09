@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Assets{% endblock %}
+{% block content %}
+
+<div class="assets">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <a href="{{ url_for('assets.assets', 
+                    sort = 'ticker_desc' if sort == 'ticker_asc' else 'ticker_asc') }}">
+                        Ticker
+                        {{ up|safe if sort == 'ticker_asc' }}
+                        {{ down|safe if sort == 'ticker_desc' }}
+                    </a>
+                </th>
+                <th>Price</th>
+                <th>Count</th>
+                <th>Last</th>
+                <th>
+                    <a href="{{ url_for('assets.assets', 
+                    sort = 'change_desc' if sort == 'change_asc' else 'change_asc') }}">
+                        Change
+                        {{ up|safe if sort == 'change_asc' }}
+                        {{ down|safe if sort == 'change_desc' }}
+                    </a>
+                </th>
+                <th>
+                    <a href="{{ url_for('assets.assets', 
+                    sort = 'total_desc' if sort == 'total_asc' else 'total_asc') }}">
+                        Total
+                        {{ up|safe if sort == 'total_asc' }}
+                        {{ down|safe if sort == 'total_desc' }}
+                    </a>
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <td>{{ d['ticker'] }}</td>
+                <td>{{ d['price'] }}</td>
+                <td>{{ d['count'] }}</td>
+                <td>{{ d['last'] }}</td>
+                <td class="{{ 'green' if d['change'] >= 0 else 'red' }}">
+                    {{ d['change']|round(2, 'floor') }}%
+                </td>
+                <td class="{{ 'green' if d['change'] >= 0 else 'red' }}">
+                    {{ d['total']|round(2, 'floor') }}
+                </td>
+                <td><button><a href="{{ url_for('assets.update', id=d['id']) }}">EDIT</a></button>
+                    <button><a href="{{ url_for('assets.delete', id=d['id']) }}">DELETE</a></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock%}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Tickers{% endblock %}
+{% block content %}
+<div class="tickers">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <a href="{{ url_for('index', 
+                    sort = 'ticker_desc' if sort == 'ticker_asc' else 'ticker_asc') }}">
+                        Ticker
+                        {{ up|safe if sort == 'ticker_asc' }}
+                        {{ down|safe if sort == 'ticker_desc' }}
+                    </a>
+                </th>
+                <th>Open</th>
+                <th>Low</th>
+                <th>High</th>
+                <th>Last</th>
+                <th>
+                    <a href="{{ url_for('index', 
+                    sort = 'change_desc' if sort == 'change_asc' else 'change_asc') }}">
+                        Change
+                        {{ up|safe if sort == 'change_asc' }}
+                        {{ down|safe if sort == 'change_desc' }}
+                    </a>
+                </th>
+                <th>
+                    <a href="{{ url_for('index', 
+                    sort = 'volume_desc' if sort == 'volume_asc' else 'volume_asc') }}">
+                        Volume
+                        {{ up|safe if sort == 'volume_asc' }}
+                        {{ down|safe if sort == 'volume_desc' }}
+                    </a>
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <td>{{ d['ticker'] }}</td>
+                <td>{{ d['open'] }}</td>
+                <td>{{ d['low'] }}</td>
+                <td>{{ d['high'] }}</td>
+                <td>{{ d['last'] }}</td>
+                <td class="{{ 'green' if d['change'] >= 0 else 'red' }}">{{ d['change'] }}</td>
+                <td>{{ d['vol'] }}</td>
+                <td><button><a href="{{ url_for('assets.create', ticker=d['ticker']) }}">ADD</a></button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

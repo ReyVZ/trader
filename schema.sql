@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS user (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT UNIQUE NOT NULL,
+  email TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL,
+  status INTEGER DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS asset (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  ticker TEXT NOT NULL,
+  price FLOAT NOT NULL,
+  count INTEGER NOT NULL,
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  user_id INTEGER NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user (id)
+);
+
+CREATE TABLE IF NOT EXISTS current (
+  dtime TEXT, 
+  ticker TEXT, 
+  open REAL, 
+  low REAL, 
+  high REAL,
+  last REAL, 
+  change REAL, 
+  vol INTEGER
+);

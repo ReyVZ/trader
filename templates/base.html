@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}{% endblock%} - Trader</title>
+</head>
+
+<body>
+
+    <div class="nav">
+        <ul>
+            <li class="logo">TRADER</li>
+            <li><a href="{{ url_for('index') }}">TICKERS</a></li>
+            <li><a href="{{ url_for('assets.assets')}}">ASSETS</a></li>
+            <li><a href="#">NEWS</a></li>
+        </ul>
+        <ul>
+            {% if g.user %}
+            <li>{{ g.user['username'] }}</li>
+            <li><a href="{{ url_for('auth.logout') }}">LOG OUT</a></li>
+            {% else %}
+            <li><a href="{{ url_for('auth.register') }}">REGISTER</a></li>
+            <li><a href="{{ url_for('auth.login') }}">LOG IN</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div class="content">
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+
+</html>

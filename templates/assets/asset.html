@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Asset{% endblock %}
+{% block content %}
+
+<div class="trade">
+    <form method="post">
+        <select name="ticker" id="ticker" required>
+            <option disabled>Select ticker...</option>
+            {% for d in data %}
+            <option {{ 'selected' if d['ticker'] == ticker or asset['ticker'] == d['ticker'] }}
+                value="{{ d['ticker'] }}">{{ d['ticker'] }}</option>
+            {% endfor %}
+        </select>
+        <input type="number" name="price" id="price" min="0" required placeholder="Enter price..."
+            value="{{ '' if not asset else asset['price'] }}">
+        <input type="number" name="count" id="count" min="0" step="1" required placeholder="Enter count..."
+            value="{{ '' if not asset else asset['count'] }}">
+        <input type="submit" value="SEND">
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Trader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li class="logo">TRADER</li>
+            <li><a href="#">Tickers</a></li>
+            <li><a href="#">Assets</a></li>
+            <li><a href="#">News</a></li>
+        </ul>
+        <ul>
+            <li>User</li>
+            <li><a href="#">Log out</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+
+        <div class="tickers">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Open</th>
+                        <th>Low</th>
+                        <th>High</th>
+                        <th>Last</th>
+                        <th>Change</th>
+                        <th>Volume</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ABRD</td>
+                        <td>130.0</td>
+                        <td>130.0</td>
+                        <td>132.0</td>
+                        <td>131.5</td>
+                        <td class="green">0.38</td>
+                        <td>2490</td>
+                        <td><button><a href="#">ADD</a></button></td>
+                    </tr>
+                    <tr>
+                        <td>SBERP</td>
+                        <td>130234.0</td>
+                        <td>130898.0</td>
+                        <td>132234.0</td>
+                        <td>131111.5</td>
+                        <td class="red">-0.38</td>
+                        <td>2490000</td>
+                        <td><button><a href="#">ADD</a></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="assets">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Price</th>
+                        <th>Count</th>
+                        <th>Last</th>
+                        <th>Change</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ABRD</td>
+                        <td>130.0</td>
+                        <td>13</td>
+                        <td>131.5</td>
+                        <td class="green">0.38</td>
+                        <td><button><a href="#">EDIT</a></button>
+                            <button><a href="#">DELETE</a></button></td>
+                    </tr>
+                    <tr>
+                        <td>SBERP</td>
+                        <td>130234.0</td>
+                        <td>130</td>
+                        <td>132234.0</td>
+                        <td class="red">-0.38</td>
+                        <td><button><a href="#">EDIT</a></button>
+                            <button><a href="#">DELETE</a></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+
+
+        <div class="trade">
+            <form action="#" method="post">
+                <select name="ticker" id="ticker">
+                    <option disabled>Select ticker...</option>
+                    <option value="SBERP">SBERP</option>
+                    <option value="RSTI">RSTI</option>
+                    <option value="TGKA">TGKA</option>
+                </select>
+                <input type="text" name="ticker" id="tiker" placeholder="Select ticker...">
+                <input type="number" name="price" id="price" min="0" placeholder="Enter price...">
+                <input type="number" name="count" id="count" min="0" step="1" placeholder="Enter count...">
+                <input type="submit" value="SEND">
+            </form>
+        </div>
+
+
+        <div class="register">
+            <form action="#" method="post">
+                <input type="text" name="username" id="username" placeholder="Enter your username...">
+                <input type="email" name="email" id="email" placeholder="Enter your e-mail...">
+                <input type="text" name="password" id="password" placeholder="Enter your password...">
+                <input type="submit" value="SEND">
+            </form>
+        </div>
+
+
+
+        <div class="login">
+            <form action="#" method="post">
+                <!-- <label for="username">Username:</label> -->
+                <input type="text" name="username" id="username" placeholder="Enter your username...">
+                <!-- <label for="password">Password:</label> -->
+                <input type="text" name="password" id="password" placeholder="Enter your password...">
+                <input type="submit" value="SEND">
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
